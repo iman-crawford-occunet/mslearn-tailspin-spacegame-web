@@ -4,9 +4,7 @@ trigger:
 pool:
   name: iman
 
-variables:
-  buildConfiguration: 'Release'
-
 steps:
-- script: dotnet build --Configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
