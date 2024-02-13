@@ -5,7 +5,10 @@ pool:
   name: iman
 
 steps:
-- task: DotNetCoreCLI@2
+- task: UseDotNet@2
+  displayName: 'Use .NET sdk 8.x'
   inputs:
-    command: 'build'
-    arguments: '--configuration Release'
+    packageType: sdk
+    version: '8.x'
+- task: Npm@1
+  displayName: 'Run npm install'
